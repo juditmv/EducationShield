@@ -15,3 +15,97 @@ Credits
 ===========
 
 X. Yang, M. Johansson, C. Leivas, T. Hansson, L. Balboa, K. Engdahl, T. Pham , A. Goransson , D. Cuartielles 
+
+Reference
+==========
+
+utils/CapacitiveSensor
+-----------------
+blahblah
+
+BLE  PeripheralBase
+-----------------
+blahblah
+
+BLEuart
+-----------------
+blahblah
+
+Button
+-----------------
+
+**Button(*pin*, *pressedValue*)**: (constructor) Creates a button object with the *pin* it is connected to, and the *pressedValue* it will have when pressed (pressed = 0 or pressed = 1).
+
+**begin()**: initializes the button-related ~~stuff~~. Sets the *pin* the button is connected to as an input.
+
+**pressed(*timeout*)**: stops the program until the state of the button changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
+**released(*timeout*)**: stops the program until the state of the button changes to *released* (not pressed). It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
+**doublePressed(*timeout*, *tolerance*)**: stops the program until the button has been pressed 2 times. It will wait up to *timeout* milliseconds for the first clicking (forever if *timeout* is 0), and *tolerance* milliseconds for the second pressing.
+
+**isPressed()**: returns the state of the button, *true* if the button is pressed, *false* if it is released.
+
+**checkPress(*timeout*, *requiredState*)**: checks if the button's state has changed from other state, to *requiredState* within *timeout* milliseconds.
+
+**getState()**: returns the current state of the *pin* connected to the button.
+
+ButtonGroup
+-----------------
+blahblah
+
+CapacitiveSwitch
+-----------------
+blahblah
+
+IMU
+-----------------
+blahblah
+
+IRarray
+-----------------
+blahblah
+
+Joystick
+-----------------
+blahblah
+
+Knob
+-----------------
+blahblah
+
+LED
+-----------------
+blahblah
+
+LightSensor
+-----------------
+blahblah
+
+Melody & pitches
+-----------------
+blahblah
+
+Player
+-----------------
+blahblah
+
+TiltSwitch
+-----------------
+blahblah
+
+UltrasonicSensor
+-----------------
+blahblah
+
+VUMeter
+-----------------
+blahblah
+
+Wheels
+-----------------
+blahblah
+
+piezoKnockSensor
+-----------------
+blahblah
