@@ -52,7 +52,13 @@ Button
 
 ButtonGroup
 -----------------
-blahblah
+**ButtonGroup()**: (constructor) Creates an object of a group of buttons to manage together (Up to 10).
+
+**begin(*length*, *buttons[]*, *pressedValue*)**: Initializes the basic variables related to the group of buttons, with *length* as the amount of buttons in that group (no more than 10), in pins *button[]*, with *pressedValue* as the status of the pins when the buttons are pressed (pressed = 0 or pressed = 1).
+
+**pressed(*timeout*)**: stops the program until the state of any of the buttons changes to *pressed* and returns the number of that button. It will wait up to *timeout* milliseconds (forever if *timeout* is 0), and if no button was pressed during this time, it will return -1.
+
+**checkPressed(*timeout*, *requiredValue*)**: stops the program until the state of any of the buttons' state changes to *requiredValue* and returns the number of that button. It will wait up to *timeout* milliseconds (forever if *timeout* is 0), and if no button was pressed during this time, it will return -1.
 
 CapacitiveSwitch
 -----------------
