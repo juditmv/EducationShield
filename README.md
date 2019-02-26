@@ -86,15 +86,33 @@ IRarray
 
 Joystick
 -----------------
-blahblah
+**Joystick(*x*, *y*)**: (constructor) Creates a joystick object which X coordinate is connected to *x* pin and Y coordinate to *y* pin.
+
+**getX()**: returns the value of the X coordinate read by the joystick.
+
+**getY()**: returns the value of the Y coordinate read by the joystick.
 
 Knob
 -----------------
-blahblah
+**Knob(*pin*)**: (constructor) Creates a knob object, associated to pin *pin*.
+
+**getValue()**: returns the value of the knob.
+
+**setLevels(*levels*)**: sets the highest value to map the readings from the knob.
+
+**getLevel()**: gets the value of the knob mapped between 0 and *levels*.
 
 LED
 -----------------
-blahblah
+**LED(*pin*)**: (constructor) Creates an LED object, associated to pin *pin*.
+
+**begin()**: initializes the LED pin as an input.
+
+**on()**: lights up the LED.
+
+**off()**: turns off the LED.
+
+**blink(*speed*, *times*)**: turs the LED on for *speed* milliseconds, then off for another *speed* milliseconds, and repeats it *times* times.
 
 LightSensor
 -----------------
@@ -114,7 +132,9 @@ blahblah
 
 UltrasonicSensor
 -----------------
-blahblah
+**UltrasonicSensor(*trig*, *echo*)**: (constructor) Creates an Ultrasonic object, with the trigger connected to *trig* pin, and the echo connected to *echo* pin.
+
+**getDistance()**: returnd the distance measured by the sensor.
 
 VUMeter
 -----------------
