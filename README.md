@@ -70,7 +70,19 @@ blahblah
 
 IRarray
 -----------------
-blahblah
+**IRarray(*IR1*, *IR2*, *IR3*)**: (constructor) Creates an object of 3 IR sensors to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, when using Arduino 101 this threshold needs to be set to 530 (use *setThreshold()*).
+
+**readBinary()**: returns the decimal value of a the black and white values the IR is reading.
+
+**translateBinary()**: translates the binary number in *toBinary* and returns its decimal value.
+
+**readLine()**: checks if the robot is following the line and erturns the value of the new speed for the wheels.
+
+**calculateVelocity(*s*)**: given the sum of the readings of teh IR sensors, calculates and returns the new speed to give the wheels (if the robot is going out of the line).
+
+**test()**: reads and prints on the Serial Monitor the values that each individual IR is reading.
+
+**setThreshold(*t*)**: sets to *t* the value of the threshold to interpret when the sensors change from 0 to 1.
 
 Joystick
 -----------------
