@@ -21,11 +21,17 @@ Reference
 
 utils/CapacitiveSensor
 -----------------
- blahblah
+blahblah
 
 BLE  PeripheralBase
 -----------------
-blahblah
+ **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
+ 
+ **setName(*name*)**: changes the name of the BLE to *name*.
+ 
+ **searchCentral()**: returns true if the connection to the central is active, false otherwise.
+ 
+ **connected()**: returnd true if the device is connected, false otherwise.
 
 BLEuart
 -----------------
@@ -36,7 +42,7 @@ Button
 
   **Button(*pin*, *pressedValue*)**: (constructor) Creates a button object with the *pin* it is connected to, and the *pressedValue* it will have when pressed (pressed = 0 or pressed = 1).
 
-  **begin()**: initializes the button-related ~~stuff~~. Sets the *pin* the button is connected to as an input.
+  **begin()**: initializes the button-related variables. Sets the *pin* the button is connected to as an input.
 
   **pressed(*timeout*)**: stops the program until the state of the button changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
 
