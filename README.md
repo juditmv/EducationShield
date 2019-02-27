@@ -121,7 +121,17 @@ LED
 
 LightSensor
 -----------------
-blahblah
+  **LighSensor(*pin*)**: (constructor) Creates a LightSensor object connected to *pin*.
+  
+  **calibrate(*t*)**: uses the values obtained during *t* milliseconds to set the values of the base (highest value measured), and the threshold that will set where is teh line between measuring a 0 and a 1.
+  
+  **config(*basevalue*, *threshold*)**: allows to change the default values of the base and threshold manually.
+  
+  **showConfig()**: prints to the serial monitor the current configuration values of the sensor. Needs the Serial communication to be enabled (*Serial.begin* on the setup).
+  
+ **test()**: sends to the serial monitor the raw values received by the sensor. Useful in order to check the base and threshold valules. Needs the Serial communication to be enabled (*Serial.begin* on the setup).
+ 
+ **getState()**: returns 0 if the measured value is between base and threshold, and 1 otherwise.
 
 Melody & pitches
 -----------------
@@ -149,16 +159,45 @@ blahblah
 
 UltrasonicSensor
 -----------------
+
   **UltrasonicSensor(*trig*, *echo*)**: (constructor) Creates an Ultrasonic object, with the trigger connected to *trig* pin, and the echo connected to *echo* pin.
 
   **getDistance()**: returnd the distance measured by the sensor.
 
 VUMeter
 -----------------
-blahblah
 
+ **VUMeter()**: (constructor) Creates an VUMeter object with its LEDs connected to pins 2 to 6 (by default).
+ 
+ **config(*length*, *pins[]*)**: allows to configure the amount of pins, *length*, connected to *pins[]* in the VUMeter.
+ 
+ **begin()**: initializaes the VUMeter. Sets all the pins as outputs. Should be called in Setup.
+ 
+ **on(*index*)**: turns on the LED in *index* position.
+ 
+ **off(*index*)**: turns off the LED in *index* position.
+ 
+ **scrollLeft(*speed*, *startIndex*)**:  from rigth to left and one a t a time, the LEDs will turn on for *speed* milliseconds then off.
+ 
+ **scrollLeft(*speed*, *startIndex*)**:  from left to right and one a t a time, the LEDs will turn on for *speed* milliseconds then off. 
+ 
+ **fillFrom(*leftIndex*, *rightIndex*)**: will turn all LEDs off, then turn on just the ones from *leftIndex* to *rightIndex*.
+ 
+ **fill(*lenght*):** will turn on *length* LEDs, starting from the 1st one (index 0).
+ 
+ **blink(*index*, *speed*, *times*)**: will turn on the the LED in *index* position during *speed* milliseconds, then off during *speed* milliseconds.
+ 
+ **blinkAll(*speed*, *times*)**: will turn on all LEDs during *speed* milliseconds, then off during *speed* milliseconds.
+ 
+  **test()**: sends to the serial monitor the pin number of those used for the VUMete. Useful in order to check if the pins ans LEDs are connected correctly. Needs the Serial communication to be enabled (*Serial.begin* on the setup). 
+  
+  **blinkOnce(*index*, *onTime*, *offTime*)**: turns the LED in *index* position on for *onTime* milliseconds, then off for *offTime* milliseconds.
+  
+  **clear()**: turns off all LEDs.
+ 
 Wheels
 -----------------
+
   **Wheels(*lpin*, *rpin*)**: (constructor) Creates an wheels object, with the left wheel connected to *lpin* and the right wheel connected to *rpin*.
 
   **begin()**: initializes the object, and should be called in setup. Sets the highest *top* speed, the lowest *low* speed, and the *still* (stoped) speed to their default values (120, 90 and 60).
