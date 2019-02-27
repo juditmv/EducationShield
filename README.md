@@ -124,7 +124,18 @@ blahblah
 
 Player
 -----------------
-blahblah
+Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 (SD card reader). 
+**Player()**: (constructor) Creates a player object.
+
+**begin()**: Initializes the player's tools: jack and SD card reader components (already inlcuded in the Education Shield board).
+
+**initPlayer()**: initializes pin 3.
+
+**initSD()**: initializes pins 4 and 10 and prepares the cadr to be read. Prints an error in case there is one.
+
+**printDirectory(*dir*, *numTabs*)**: prints in the Serial Monitor the names of the files and directories inside the *dir* directory of the SD card.
+
+**play(*name*)**: plays the file *name* through the jack connector. While it is playing it, the SErial monitor will print dots until the file is finished, when *"End of file. Thank you for listening!"* will be printed.
 
 TiltSwitch
 -----------------
