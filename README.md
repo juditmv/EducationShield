@@ -135,7 +135,21 @@ LightSensor
 
 Melody & pitches
 -----------------
-blahblah
+In *pitches.h* there is a wide list with notes and their own frequency, useful whn playing melidies with the buzzer / piezo.
+
+ **Melody(*pin*)**: (constructor) Creates a melody object, where the piezo / buzzer is connected to *pin* pin.
+
+ **play(*length*, *notes[]*, *duration[]*, *speed*)**: plays the amount (*length*) of *notes* during their corresponding *duration* milliseconds, then pausing for some time depending on the*speed* (1 for normal speed, 0.5 to double the speed, etc).
+
+  **beep(*note*, *length*)**: beeps the *note* during some ammount of time depending ont the *length*.
+
+ **playTone(*note*, *length*)**: plays the *note* for *length* milliseconds.
+
+ **effect_win()**: plays a happy, winning melody.
+
+ **effect_gameover()**: plays a sad, game over melody.
+
+ **effect_score()**: plays a short melody, great when scoring points/goals.
 
 Player
 -----------------
