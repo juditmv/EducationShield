@@ -69,7 +69,15 @@ ButtonGroup
 
 CapacitiveSwitch
 -----------------
-blahblah
+**CapacitiveSwitch(*pin_in*, *pin*)**: (constructor) Creates an object of 3 IR sensors to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, w
+
+**config(*threshold*)**: 
+
+**test()**: 
+
+**getValue(*min*)**:
+
+**getState()**:
 
 IMU
 -----------------
@@ -78,7 +86,7 @@ blahblah
 IRarray
 -----------------
 
-  **IRarray(*IR1*, *IR2*, *IR3*)**: (constructor) Creates an object of 3 IR sensors to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, when using Arduino 101 this threshold needs to be set to 530 (use *setThreshold()*).
+  **IRarray(*IR1*, *IR2*, *IR3*)**: (constructor) Creates an object of the 3 IR sensors connected to *IR1*, *IR2* and *IR3* to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, when using Arduino 101 this threshold needs to be set to 530 (use *setThreshold()*).
 
   **readBinary()**: returns the decimal value of a the black and white values the IR is reading.
 
@@ -175,7 +183,7 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
 TiltSwitch
 -----------------
-blahblah
+ **TiltSwitch( *pin*, *pressedValue*)**: creates a TiltSwitch object, connected to *pin*, and the *pressedValue* it will have when upright (upright = 0 or upright = 1).
 
 UltrasonicSensor
 -----------------
