@@ -108,7 +108,55 @@ blahblah
 
 ## IMU
 
-blahblah
+ **IMU::IMU()**: (constructor) Creates an IMU object.
+  
+ **begin( *accRange*, *gyroRange*)**: Initializes the IMU and sets *accRange* as the range of acceleration to be measured (2, 4, 8, or 16 for +/- 2/4/8/16g to be measured), and *gyroRange* as the range for the gyrosensor to measure (2000, 1000, 500, 250 or 125 for +/- 2000/1000/500/250/125 degrees per second). Needs to be called in the *setup()*. 
+
+ **calibrate()**: Autocalibrates the sensor's offset. During this procedure the board should stay motionless.
+
+ **detectShock( *shockThreashold*, *shockDuration*)**: enables the shock detection feature, a shock will be detected as long as the shock is greater then *shockThreashold*, and lasts longer than *shockDuration*
+  
+ **attachCallback(*(\*callback)*)**: when the shock is detected, the function *callback* will be called.
+
+ **measureMotion()**: retrieves and stores all currently available motion sensor raw values.
+
+ **calculateRollPitch()**:calculates the pitch and roll filtered values measured in degrees and stores them  in internal variables.
+ 
+ **calculateComplementaryRollPitch()**: calculates the pitch and roll filtered values measured in degrees and stores them in internal variables.
+ 
+ **run()**: calculates the value of the pitch and roll angles and storages it in the internal variables. if *FILTER_TYPE* is 1, it will calculate the filtered value, if it is 0, it will calculate the unfiltered value.
+
+ **getPitch()**: returns the *pitch* angle value.
+
+ **getRoll()**: returns the *roll* angle value.
+
+ **getAccelerometerX()**: returns the raw value of the acceleration in X axis.
+
+ **getAccelerometerY()**: returns the raw value of the acceleration in X axis.
+
+ **getAccelerometerZ()**: returns the raw value of the acceleration in X axis.
+
+ **getGyroX()**: returns the raw value of the angular speed in X axis.
+
+ **getGyroY()**:  returns the raw value of the angular speed in Y axis.
+
+ **getGyroZ()**: returns the raw value of the angular speed in Z axis.
+
+ **getAccelerometerX_g()**: returns the value of the acceleration in X axis measured in g.
+
+ **getAccelerometerY_g()**: returns the value of the acceleration in Y axis measured in g.
+
+ **getAccelerometerZ_g()**: returns the value of the acceleration in Z axis measured in g.
+
+ **getGyroX_dps()**: returns the value of the angular speed in X axis measured in degrees per second.
+
+ **getGyroY_dps()**: returns the value of the angular speed in Y axis measured in degrees per second.
+
+ **getGyroZ_dps()**:  returns the value of the angular speed in Z axis measured in degrees per second.
+
+ **convertAcclerometer_g(*rawVal*)**: converts *rawVal* to a multiplier to g.
+ 
+ **convertGyro_dps( *rawVal* )**: converts *rawVal* to degrees per second.
 
 
 ## IRarray
