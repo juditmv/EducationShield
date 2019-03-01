@@ -22,7 +22,6 @@ Reference
 Reference section which explains the functions and constants defined in the library.
 
 
-- [CapacitiveSensor](#capacitivesensor)
 - [BLE PeripheralBase](#ble-peripheralbase)
 - [BLEuart](#bleuart)
 - [Button](#button)
@@ -43,17 +42,7 @@ Reference section which explains the functions and constants defined in the libr
 - [PiezoKnockSensor](#piezoknocksensor)
 
 
-## CapacitiveSensor
 
- **CapacitiveSwitch( *senderPin*, *receiverPin* )**: (constructor) Creates a CapacitiveSwitch object, where *senderPin* is the digital pin that acts as the sender (the same *senderPin* can be used as sender for several capacitive sensors), and *receiverPin* is the digital pin that acts as the receiver (each different sensor must have a different *receiverPin*).
-
- **config( *threshold* )**: If the capacitive sensor is to be used as a switch, this function can be used to configure the *threshold* (value for the capacitive switch to register a press). **test()** can be used to check the sensor readings first in order to decide the *threshold* value.
-
- **pressed( *timeout* )**: stops the program until the state of the sensor changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *pressed*, 0 if it's not.
- 
- **released( *timeout* )**: stops the program until the state of the sensor changes to *released*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *released*, 0 if it's not.
- 
- 
 ## BLE PeripheralBase
 
  **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
@@ -102,15 +91,19 @@ blahblah
 
 ## CapacitiveSwitch
 
-**CapacitiveSwitch(*pin_in*, *pin*)**: (constructor) Creates an object of 3 IR sensors to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, w
+ **CapacitiveSwitch( *pin_in*, *pin* )**: (constructor) Creates a CapacitiveSwitch object, where *pin_in* is the digital pin that acts as the sender (the same *pin_in* can be used as sender for several capacitive sensors), and *pin* is the digital pin that acts as the receiver (each different sensor must have a different *pin*).
 
-**config(*threshold*)**:
+ **config( *threshold* )**: If the capacitive sensor is to be used as a switch, this function can be used to configure the *threshold* (value for the capacitive switch to register a press). **test()** can be used to check the sensor readings first in order to decide the *threshold* value.
 
-**test()**:
+ **pressed( *timeout* )**: stops the program until the state of the sensor changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *pressed*, 0 if it's not.
+ 
+ **released( *timeout* )**: stops the program until the state of the sensor changes to *released*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0. Returns 1 if the sensor has been *released*, 0 if it's not.
+ 
+ **test()**: reads and prints on the Serial Monitor the values that the CapacitiveSensor is reading.
 
-**getValue(*min*)**:
+**getValue(*min*)**: returns the current value read by the sensor.
 
-**getState()**:
+**getState()**: retuurns the *pressed* or *released* state of the sensor.
 
 
 ## IMU
