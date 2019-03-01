@@ -56,7 +56,6 @@ Reference section which explains the functions and constants defined in the libr
  
 ## BLE PeripheralBase
 
-
  **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
 
  **setName(*name*)**: changes the name of the BLE to *name*.
@@ -70,8 +69,8 @@ Reference section which explains the functions and constants defined in the libr
 
 blahblah
 
-## Button
 
+## Button
 
   **Button(*pin*, *pressedValue*)**: (constructor) Creates a button object with the *pin* it is connected to, and the *pressedValue* it will have when pressed (pressed = 0 or pressed = 1).
 
@@ -89,8 +88,8 @@ blahblah
 
   **getState()**: returns the current state of the *pin* connected to the button.
 
-## ButtonGroup
 
+## ButtonGroup
 
   **ButtonGroup()**: (constructor) Creates an object of a group of buttons to manage together (Up to 10).
 
@@ -99,6 +98,7 @@ blahblah
   **pressed(*timeout*)**: stops the program until the state of any of the buttons changes to *pressed* and returns the number of that button. It will wait up to *timeout* milliseconds (forever if *timeout* is 0), and if no button was pressed during this time, it will return -1.
 
   **checkPressed(*timeout*, *requiredValue*)**: stops the program until the state of any of the buttons' state changes to *requiredValue* and returns the number of that button. It will wait up to *timeout* milliseconds (forever if *timeout* is 0), and if no button was pressed during this time, it will return -1.
+
 
 ## CapacitiveSwitch
 
@@ -112,12 +112,13 @@ blahblah
 
 **getState()**:
 
+
 ## IMU
 
 blahblah
 
-## IRarray
 
+## IRarray
 
   **IRarray(*IR1*, *IR2*, *IR3*)**: (constructor) Creates an object of the 3 IR sensors connected to *IR1*, *IR2* and *IR3* to manage together. The default threshold value (the value at which the percieved value changes from 0 to 1) is 380, when using Arduino 101 this threshold needs to be set to 530 (use *setThreshold()*).
 
@@ -133,8 +134,8 @@ blahblah
 
   **setThreshold(*t*)**: sets to *t* the value of the threshold to interpret when the sensors change from 0 to 1.
 
-## Joystick
 
+## Joystick
 
   **Joystick(*x*, *y*)**: (constructor) Creates a joystick object which X coordinate is connected to *x* pin and Y coordinate to *y* pin.
 
@@ -142,8 +143,8 @@ blahblah
 
   **getY()**: returns the value of the Y coordinate read by the joystick.
 
-## Knob
 
+## Knob
 
   **Knob(*pin*)**: (constructor) Creates a knob object, associated to pin *pin*.
 
@@ -153,8 +154,8 @@ blahblah
 
   **getLevel()**: gets the value of the knob mapped between 0 and *levels*.
 
-## LED
 
+## LED
 
   **LED(*pin*)**: (constructor) Creates an LED object, associated to pin *pin*.
 
@@ -165,6 +166,7 @@ blahblah
   **off()**: turns off the LED.
 
   **blink(*speed*, *times*)**: turs the LED on for *speed* milliseconds, then off for another *speed* milliseconds, and repeats it *times* times.
+
 
 ## LightSensor
 
@@ -179,14 +181,19 @@ blahblah
  **test()**: sends to the serial monitor the raw values received by the sensor. Useful in order to check the base and threshold valules. Needs the Serial communication to be enabled (*Serial.begin* on the setup).
 
  **getState()**: returns 0 if the measured value is between base and threshold, and 1 otherwise.
+ 
+   **pressed(*timeout*)**: stops the program until the state of the sensor changes to *pressed*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
+  **released(*timeout*)**: stops the program until the state of the sensor changes to *released* (not pressed). It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
 
 ## Melody and pitches
 
-In *pitches.h* there is a wide list with notes and their own frequency, useful whn playing melidies with the buzzer / piezo.
+In *pitches.h* there is a wide list with notes and their frequency, useful when playing melodies with the buzzer / piezo.
 
  **Melody(*pin*)**: (constructor) Creates a melody object, where the piezo / buzzer is connected to *pin* pin.
 
- **play(*length*, *notes[]*, *duration[]*, *speed*)**: plays the amount (*length*) of *notes* during their corresponding *duration* milliseconds, then pausing for some time depending on the*speed* (1 for normal speed, 0.5 to double the speed, etc).
+ **play(*length*, *notes[]*, *duration[]*, *speed*)**: plays the amount (*length*) of *notes[]* during their corresponding *duration[]* milliseconds, then pausing for some time depending on the *speed* or tempo (1 for normal speed, 0.5 to double the speed, etc).
 
   **beep(*note*, *length*)**: beeps the *note* during some ammount of time depending ont the *length*.
 
@@ -197,6 +204,7 @@ In *pitches.h* there is a wide list with notes and their own frequency, useful w
  **effect_gameover()**: plays a sad, game over melody.
 
  **effect_score()**: plays a short melody, great when scoring points/goals.
+
 
 ## Player
 
@@ -214,19 +222,26 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
   **play(*name*)**: plays the file *name* through the jack connector. While it is playing it, the SErial monitor will print dots until the file is finished, when *"End of file. Thank you for listening!"* will be printed.
 
+
 ## TiltSwitch
 
  **TiltSwitch( *pin*, *pressedValue*)**: creates a TiltSwitch object, connected to *pin*, and the *pressedValue* it will have when upright (upright = 0 or upright = 1).
+ 
+ **begin()**: Initializes the component. Must be called in*setup()*.
+
+  **pressed(*timeout*)**: stops the program until the state of the tiltSwitch changes to *tilted*. It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
+  **released(*timeout*)**: stops the program until the state of the button changes to *upright* (not pressed). It will wait up to *timeout* milliseconds, or forever if *timeout* is 0.
+
 
 ## UltrasonicSensor
-
 
   **UltrasonicSensor(*trig*, *echo*)**: (constructor) Creates an Ultrasonic object, with the trigger connected to *trig* pin, and the echo connected to *echo* pin.
 
   **getDistance()**: returnd the distance measured by the sensor.
 
-## VUMeter
 
+## VUMeter
 
  **VUMeter()**: (constructor) Creates an VUMeter object with its LEDs connected to pins 2 to 6 (by default).
 
@@ -240,7 +255,7 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
  **scrollLeft(*speed*, *startIndex*)**:  from rigth to left and one a t a time, the LEDs will turn on for *speed* milliseconds then off.
 
- **scrollLeft(*speed*, *startIndex*)**:  from left to right and one a t a time, the LEDs will turn on for *speed* milliseconds then off.
+ **scrollRigth(*speed*, *startIndex*)**:  from left to right and one a t a time, the LEDs will turn on for *speed* milliseconds then off.
 
  **fillFrom(*leftIndex*, *rightIndex*)**: will turn all LEDs off, then turn on just the ones from *leftIndex* to *rightIndex*.
 
@@ -256,8 +271,8 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
   **clear()**: turns off all LEDs.
 
-## Wheels
 
+## Wheels
 
   **Wheels(*lpin*, *rpin*)**: (constructor) Creates an wheels object, with the left wheel connected to *lpin* and the right wheel connected to *rpin*.
 
@@ -275,7 +290,8 @@ Uses pins 0, 1 (Serial communication), 3 (PWM for the jack connector), 4 and 10 
 
   **standStill()**: gradually stops the wheels.
 
-  **follow(*d*)**: changes the speed of the motors *d* units. Useful for the linefollower, where *d* would be the error when reading the line (how far away to the sides the robot is going), positive when the robot is diverting to the right of the line, 0 if it is on the line, and negative when it's diverting to the left.
+  **follow(*d*)**: changes the speed of the motors *d* units. Used with IRarray, and useful for the linefollower, where *d* would be the error when reading the line (how far away to the sides the robot is going), positive when the robot is diverting to the right of the line, 0 if it is on the line, and negative when it's diverting to the left.
+
 
 ## PiezoKnockSensor
 
