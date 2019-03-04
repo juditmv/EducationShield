@@ -45,18 +45,40 @@ Reference section which explains the functions and constants defined in the libr
 
 ## BLE PeripheralBase
 
- **BLEPeripheralBase()**: (constructor) Creates a BLE objec in ordet to interact with the BLE characteristics.
+ **BLEPeripheralBase()**: (constructor) Creates a BLE peripheral object.
 
- **setName(*name*)**: changes the name of the BLE to *name*.
+ **setName(*name*)**: changes the name of the BLE peripheral to *name*.
 
- **searchCentral()**: returns true if the connection to the central is active, false otherwise.
+ **searchCentral()**: returns true if the connection to the central BLE is active, false otherwise.
 
- **connected()**: returnd true if the device is connected, false otherwise.
+ **connected()**: returns true if the device is connected, false otherwise.
 
 
 ## BLEuart
 
-blahblah
+ **BLEuart( *exampleID* )**:  (constructor) Creates a BLE uart object.
+
+ **begin()**: initializes the UART communications.
+
+ **setExampleID( *exampleID* )**: assigns *exampleID*.
+
+ **dataReceived()**: returns the data currently in the receive buffer.
+ 
+ **fetchData()**: stores the values in the buffer in the memory and sets the buffer information counter to 0 to be fiilled again.
+ 
+ **send()**: sends teh information currently stored in the send buffer.
+
+ **sendString(* \* text*, *length* )**: sends the string.
+
+ **receivedString()**: returns the information stored in the buffer.
+
+ **getReceivedLength()**: returns the length oft he received information.
+
+ **addValue( *val* )**: adds data to the send buffer.
+
+ **addValueAt( *val*, *position* )**: adds data to the send buffer in a certin position.
+
+ **getValueAt( *position*)**. resturns the data in the *position* of the receive buffer.
 
 
 ## Button
